@@ -1,0 +1,5 @@
+{{ with .Params.tags }}
+<!-- <i data-feather="tag"></i> -->
+{{ range . }} {{ $href := print (absURL "tags/") (urlize .) }}
+<a class="" href="{{ $href }}">{{ . }}</a>
+{{ end }} {{ end }}
