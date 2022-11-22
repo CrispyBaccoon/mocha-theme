@@ -1,7 +1,15 @@
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="stylesheet" type="text/css" href="/css/main.css" />
+{{ $opts := (dict "transpiler" "dartsass" "outputStyle" "compressed" "includePaths" (slice "node_modules")) }}
+{{ if eq hugo.Environment "development" }}
+  {{ $opts = (dict "transpiler" "dartsass" "enableSourceMap" true "includePaths" (slice "node_modules")) }}
+{{ end }}
+
+{{ $css := resources.Get "scss/main.scss" }}
+{{ $css = $css | resources.ToCSS $opts }}
+
+<link rel="stylesheet" type="text/css" href="{{ $css.RelPermalink }}" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
 <!-- Primary Meta Tags -->

@@ -1,5 +1,10 @@
 {{ define "main" }}
-<div id="hero">
-  <h1 class="title">{{ .Site.Title }}</h1>
+<div id="home-page">
+  <main>
+    <h1 class="title">{{ .Site.Title }}</h1>
+    <div class="post-bar">
+      {{ range .Site.RegularPages }} {{ .Render "li" }} {{ end }}
+    </div>
+  </main>
 </div>
 {{ end }}
