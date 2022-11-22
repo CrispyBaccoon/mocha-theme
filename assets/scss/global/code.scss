@@ -1,0 +1,18 @@
+@use "../abstracts/" as *;
+
+/* global code */
+
+pre {
+  font-family: "Source Code Pro";
+  @include bg(400);
+
+  border-radius: 10px;
+  padding: 12px;
+}
+
+code {
+  // @include bg(400);
+
+  border-radius: 2px;
+  // padding-inline: 2px;
+}

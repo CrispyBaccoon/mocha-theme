@@ -1,0 +1,64 @@
+@use "../abstracts/" as *;
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-bar {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 5rem;
+  @include bp(md) {
+    width: 22%;
+  }
+  @include bp(lg) {
+    width: 42%;
+  }
+
+  @include fg(200);
+  .post-item {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: "";
+      height: 1px;
+      width: 100%;
+      @include bg(400);
+    }
+
+    h3 {
+      position: relative;
+      margin-block: 2rem 0.5rem;
+      font-weight: 600;
+      font-size: 1.5rem;
+
+      a {
+        @include bg(500);
+
+        &.title::after {
+          content: ".";
+        }
+      }
+
+      .desc {
+        font-size: 1.1rem;
+        font-weight: 400;
+        font-style: italic;
+        @include fg(300);
+      }
+    }
+
+    .summary {
+      @include bg(500);
+      margin: 0;
+
+      p {
+        margin: 1rem 0.2rem;
+      }
+    }
+  }
+}

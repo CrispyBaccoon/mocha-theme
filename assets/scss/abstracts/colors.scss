@@ -1,0 +1,63 @@
+$color: (
+  500: hsl(240, 18%, 9%),
+  400: hsl(240, 22%, 15%),
+  300: hsl(240, 16%, 62%),
+  200: hsl(240, 16%, 82%),
+  100: hsl(240, 16%, 92%),
+  // mocha: hsl(21, 72%, 74%),
+  // mocha-accent: hsl(21 - 62, 12%, 18%),
+  rose: hsl(352, 81%, 83%),
+  rose-accent: hsl(352 - 72, 17%, 20%),
+  rose-light: hsl(352, 54%, 60%),
+  rose-light-accent: hsl(352 + 10, 38%, 80%),
+  leaf: hsl(115, 52%, 72%),
+  leaf-accent: hsl(115 - 20, 18%, 20%),
+  cl-100: hsl(240 - (10 * 1.2), 43% * 0.4, 80%),
+  cl-200: hsl(240 - (10 * 0.8), 36% * 0.4, 71%),
+  cl-300: hsl(240 - (10 * 0), 56% * 0.4, 62%),
+  cl-400: hsl(240 + (10 * 0.8), 75% * 0.4, 39%),
+  cl-500: hsl(240 + (10 * 1.2), 79% * 0.4, 34%),
+);
+$light: (
+  // mocha: mocha,
+  // mocha-accent: mocha-accent,
+  rose: rose-light,
+  rose-accent: rose-light-accent,
+  500: 100,
+  400: 200,
+  300: 300,
+  200: 400,
+  100: 500,
+  cl-500: cl-100,
+  cl-400: cl-200,
+  cl-300: cl-300,
+  cl-200: cl-400,
+  cl-100: cl-500
+);
+
+@mixin bg($a) {
+  @media (prefers-color-scheme: dark) {
+    background-color: map-get($color, $a);
+  }
+  @media (prefers-color-scheme: light) {
+    background-color: map-get($color, map-get($light, $a));
+  }
+}
+
+@mixin fg($a) {
+  @media (prefers-color-scheme: dark) {
+    color: map-get($color, $a);
+  }
+  @media (prefers-color-scheme: light) {
+    color: map-get($color, map-get($light, $a));
+  }
+}
+
+@mixin border-clr($a) {
+  @media (prefers-color-scheme: dark) {
+    border-color: map-get($color, $a);
+  }
+  @media (prefers-color-scheme: light) {
+    border-color: map-get($color, map-get($light, $a));
+  }
+}

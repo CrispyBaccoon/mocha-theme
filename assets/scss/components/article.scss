@@ -1,0 +1,45 @@
+@use "../abstracts/" as *;
+
+/* article */
+
+article {
+  margin-bottom: 20vh;
+
+  h1,
+  h2,
+  h3 {
+    @include fg(rose);
+    margin-block: 1rem;
+    font-weight: bold;
+  }
+  :is(p, pre, block-quote) + :is(h1, h2, h3) {
+    margin-top: 1.2rem;
+  }
+
+  h1 {
+    margin-top: 2em;
+    font-size: 2em;
+  }
+
+  p,
+  l {
+    line-height: 1.5em;
+    margin-block: 1rem;
+  }
+
+  /* block-quote */
+  blockquote {
+    @include bg(rose-accent);
+
+    border-left: 5px solid;
+    @include border-clr(rose);
+    padding-left: 1.6rem;
+
+    padding-block: 0.5rem;
+    margin-block: 1.2rem;
+
+    p {
+      margin: 0;
+    }
+  }
+}

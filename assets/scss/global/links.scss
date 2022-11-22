@@ -1,0 +1,17 @@
+@use "../abstracts/" as *;
+
+/* global links */
+
+a {
+  text-decoration: none;
+  @include fg(cl-200);
+  @include bg(400);
+  padding: 0 0.2rem;
+  margin: auto -0.1em;
+  border-radius: 3px;
+
+  &.meta-tag {
+    margin-inline: 0.2rem;
+    padding-inline: 0.4rem;
+  }
+}
